@@ -1,0 +1,39 @@
+.search{
+    display:flex;
+    justify-content: center;
+    padding: 20px;
+}
+input{
+    border-radius: 10px;
+    margin-right: 10px;
+    font-size: large;
+}
+#but{
+    height: 70px;
+    width:150px;
+    margin-left: 10px;
+    font-weight: bolder;
+    color: red;
+    background-color: greenyellow;
+    border-radius: 50px;
+    text-align: center;
+    font-size: larger;
+    padding: 8px;
+}
+
+#but:hover {
+    background-color: #3e8e41;
+    cursor: pointer;
+  }
+#but:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+#main{
+    width:300px;
+    display:inline-block;
+    background-color: rgb(196, 236, 135);
+    border-radius: 25px;
+}
