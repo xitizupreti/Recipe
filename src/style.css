@@ -1,6 +1,6 @@
 *{
-    font-family:cursive;
-    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 3px;
 }
 .search{
     display:flex;
@@ -35,14 +35,14 @@ input{
     transform: translateY(4px);
   }
 #image{
-    width: 350px;
+    width: 300px;
     padding: 2px;
     height: 300px;
 }
 #main{
     height:800px;
     overflow: scroll;
-    width:350px;
+    width:300px;
     display:inline-block;
     /* flex-direction: column; */
     background-color: rgb(196, 236, 135);
