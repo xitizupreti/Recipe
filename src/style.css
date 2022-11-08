@@ -1,3 +1,7 @@
+*{
+    font-family:cursive;
+    padding: 10px;
+}
 .search{
     display:flex;
     justify-content: center;
@@ -32,8 +36,13 @@ input{
   }
 
 #main{
-    width:300px;
+    width:fit-content;
     display:inline-block;
+    flex-direction: column;
     background-color: rgb(196, 236, 135);
-    border-radius: 25px;
+    border-radius: 12px;
+    margin-right: 70px;
+    margin-left: 50px;
+    margin-bottom: 40px;
+    margin-top: 20px;
 }

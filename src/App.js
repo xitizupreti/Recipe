@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Axe from "./Axe";
+import Card from "./Cards";
 
 const Recipe = () => {
-  const [query, setquery] = useState("");
-  const qqq=()=>{
+  const [query, setquery] = useState();
+
+  const qqq=(e)=>{
+    e.preventDefault()
     setquery(Input);
   };
+  const [data, setData] = useState([])
 
-  const [Input, setInput] = useState("");
+  const [Input, setInput] = useState();
+
   const type = (event) => {
     setInput(event.target.value);
   };
@@ -20,25 +24,30 @@ const Recipe = () => {
       const url = await axios.get(
         `https://api.edamam.com/search?q=${query}&app_id=${app_id}&app_key=${app_key}`
       );
-      console.log(url.data);
+      setData(url.data.hits)
+      console.log(url.data.hits);
     }
     Data();
   },[query]);
   return (
     <>
-      <div className="search">
+      <form className="search" onSubmit={qqq}>
         <input
           type="text"
           value={Input}
           onChange={type}
           placeholder="Search.."
         />
-        <button onClick={qqq} id="but" type="submit">
+        <button id="but" type="submit">
           Search
         </button>
-      </div>
-      <div id="main">
-        <Axe />
+      </form>
+      <div>
+        {
+          data.map((item)=> <Card src={item.recipe.image} Name={item.recipe.label} Calories={item.recipe.calories}/>)
+        }
+       
+      
       </div>
     </>
   );
