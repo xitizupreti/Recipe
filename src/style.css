@@ -47,9 +47,9 @@ input{
     /* flex-direction: column; */
     background-color: rgb(196, 236, 135);
     border-radius: 12px;
-    margin-right: 70px;
-    margin-left: 50px;
-    margin-bottom: 40px;
+    /* margin-right: 70px; */
+    margin-left: 40px;
+    margin-bottom: 20px;
     margin-top: 20px;
 }
 
