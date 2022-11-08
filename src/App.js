@@ -5,11 +5,11 @@ import Card from "./Cards";
 const Recipe = () => {
   const [query, setquery] = useState();
 
-  const qqq=(e)=>{
-    e.preventDefault()
+  const qqq = (e) => {
+    e.preventDefault();
     setquery(Input);
   };
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   const [Input, setInput] = useState();
 
@@ -24,11 +24,11 @@ const Recipe = () => {
       const url = await axios.get(
         `https://api.edamam.com/search?q=${query}&app_id=${app_id}&app_key=${app_key}`
       );
-      setData(url.data.hits)
+      setData(url.data.hits);
       console.log(url.data.hits);
     }
     Data();
-  },[query]);
+  }, [query]);
   return (
     <>
       <form className="search" onSubmit={qqq}>
@@ -38,16 +38,21 @@ const Recipe = () => {
           onChange={type}
           placeholder="Search.."
         />
-        <button id="but" type="submit">
+        <button className="but" type="submit">
           Search
         </button>
       </form>
-      <div>
-        {
-          data.map((item)=> <Card src={item.recipe.image} Name={item.recipe.label} Calories={item.recipe.calories}/>)
-        }
-       
-      
+      <div >
+        {data.map((item,index) => (
+          <Card
+          key={index}
+            src={item.recipe.image}
+            Name={item.recipe.label}
+            Calories={item.recipe.calories}
+            Ing={item.recipe.ingredientLines}
+            link={item.recipe.url}
+          />
+        ))}
       </div>
     </>
   );

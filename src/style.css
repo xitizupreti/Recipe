@@ -1,6 +1,6 @@
 *{
     font-family:cursive;
-    padding: 10px;
+    padding: 5px;
 }
 .search{
     display:flex;
@@ -12,8 +12,8 @@ input{
     margin-right: 10px;
     font-size: large;
 }
-#but{
-    height: 70px;
+.but{
+    height: 60px;
     width:150px;
     margin-left: 10px;
     font-weight: bolder;
@@ -25,20 +25,26 @@ input{
     padding: 8px;
 }
 
-#but:hover {
+.but:hover {
     background-color: #3e8e41;
     cursor: pointer;
   }
-#but:active {
+.but:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
-
+#image{
+    width: 350px;
+    padding: 2px;
+    height: 300px;
+}
 #main{
-    width:fit-content;
+    height:800px;
+    overflow: scroll;
+    width:350px;
     display:inline-block;
-    flex-direction: column;
+    /* flex-direction: column; */
     background-color: rgb(196, 236, 135);
     border-radius: 12px;
     margin-right: 70px;
@@ -46,3 +52,7 @@ input{
     margin-bottom: 40px;
     margin-top: 20px;
 }
+
+#main::-webkit-scrollbar {
+    display: none;
+  }
