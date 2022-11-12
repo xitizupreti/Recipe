@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "./Cards";
+import { FidgetSpinner } from "react-loader-spinner";
 
 const Recipe = () => {
   const [query, setquery] = useState();
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [Input, setInput] = useState();
 
   const qqq = (e) => {
     e.preventDefault();
     setquery(Input);
+    setLoading(true);
   };
-  const [data, setData] = useState([]);
-
-  const [Input, setInput] = useState();
 
   const type = (event) => {
     setInput(event.target.value);
@@ -26,9 +28,12 @@ const Recipe = () => {
       );
       setData(url.data.hits);
       console.log(url.data.hits);
+      setLoading(false);
     }
     Data();
-  }, [query]);
+  }, [loading]);
+
+
   return (
     <>
       <form className="search" onSubmit={qqq}>
@@ -42,18 +47,34 @@ const Recipe = () => {
           Search
         </button>
       </form>
-      <div >
-        {data.map((item,index) => (
-          <Card
-          key={index}
-            src={item.recipe.image}
-            Name={item.recipe.label}
-            Calories={item.recipe.calories}
-            Ing={item.recipe.ingredientLines}
-            link={item.recipe.url}
-          />
-        ))}
-      </div>
+{  loading ? (
+      <FidgetSpinner
+        visible={true}
+        height="100%"
+        width="500px"
+        ariaLabel="dna-loading"
+        wrapperStyle={{}}
+        wrapperClass="dna-wrapper"
+        ballColors={["#ff0000", "#00ff00", "#0000ff"]}
+        backgroundColor="#F4442E"
+      />
+    ) :  
+      (data.length < 1) ? (
+        <h1 style={{textAlign:'center'}}>No Items found</h1>
+      ) : (
+        <div>
+          {data.map((item, index) => (
+            <Card
+              key={index}
+              src={item.recipe.image}
+              Name={item.recipe.label}
+              Calories={item.recipe.calories}
+              Ing={item.recipe.ingredientLines}
+              link={item.recipe.url}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 };

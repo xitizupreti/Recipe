@@ -6,7 +6,7 @@ function Card(props) {
     <div id="main">
       <img id="image" src={src} alt="" />
       <p><b>Name=</b>{Name}</p>
-      <p><b>Calories=</b>{Calories}</p>
+      <p><b>Calories=</b>{Calories.toFixed(2)}</p>
       <p><b>Ingredients=</b>{props.Ing.map((item,index) => (
         <li key={index}>{item}</li>
       ))}</p>
