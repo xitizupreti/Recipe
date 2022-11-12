@@ -33,7 +33,6 @@ const Recipe = () => {
     Data();
   }, [loading]);
 
-
   return (
     <>
       <form className="search" onSubmit={qqq}>
@@ -47,20 +46,30 @@ const Recipe = () => {
           Search
         </button>
       </form>
-{  loading ? (
-      <FidgetSpinner
-        visible={true}
-        height="100%"
-        width="500px"
-        ariaLabel="dna-loading"
-        wrapperStyle={{}}
-        wrapperClass="dna-wrapper"
-        ballColors={["#ff0000", "#00ff00", "#0000ff"]}
-        backgroundColor="#F4442E"
-      />
-    ) :  
-      (data.length < 1) ? (
-        <h1 style={{textAlign:'center'}}>No Items found</h1>
+      {loading ? (
+        <FidgetSpinner
+          visible={true}
+          height="100%"
+          width="500px"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+          ballColors={["#ff0000", "#00ff00", "#0000ff"]}
+          backgroundColor="#F4442E"
+        />
+      ) : data.length < 1 ? (
+        <div>
+          <FidgetSpinner
+            visible={true}
+            height="100%"
+            width="500px"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+            ballColors={["#ff0000", "#00ff00", "#0000ff"]}
+            backgroundColor="#F4442E"
+          />
+        </div>
       ) : (
         <div>
           {data.map((item, index) => (
